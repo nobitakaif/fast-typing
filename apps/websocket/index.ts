@@ -15,17 +15,27 @@ Bun.serve({
     websocket:{
         
         message(ws, msg){
+            
             console.log("this msg came from the client -> ", msg)
             ws.send(content)
             if(msg === content[ctr]){
-                ws.send(`pls type ${content[ctr+1]}`)
+                ws.send(JSON.stringify({
+                    currentState : true,
+                    msg : "you're going very well" 
+                }))
                 ctr++
             }else{
                 if(ctr >= content.length){
-                    ws.send("you've passed the testj")
+                    ws.send(JSON.stringify({
+                        success : true,
+                        msg : "you've passed the test"
+                    }))
                 }
                 else{
-                    ws.send("you've sent wrong key")
+                    ws.send(JSON.stringify({
+                        currentState : false,
+                        msg : "you've sent wrong key"
+                    }))
                 }
             }
         }
