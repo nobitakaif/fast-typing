@@ -6,6 +6,13 @@
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "@repo/db": "*"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@types/express": "^5.0.5",
+    "experss": "^0.0.1-security",
+    "express": "^5.2.0"
   }
 }
